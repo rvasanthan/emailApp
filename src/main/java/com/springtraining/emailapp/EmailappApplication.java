@@ -7,27 +7,30 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 @SpringBootApplication
-public class EmailappApplication { //implements CommandLineRunner {
+public class EmailappApplication implements CommandLineRunner {
 
-	/*@Autowired
-	EmailInfoRepository repository;*/
+	@Autowired
+	EmailInfoRepository repository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(EmailappApplication.class, args);
 	}
 
-	/*@Override
+	@Override
 	public void run(String... args) throws Exception {
 		List<EmailInfo> lists = repository.findByFirstName("Vasanthan");
 		for(EmailInfo emailInfo : lists) {
 			System.out.println(emailInfo.getFirstName());
 			System.out.println(emailInfo.getLastName());
-			System.out.println(emailInfo.getEmail());
-
+			Stream<String> stream = Arrays.stream(emailInfo.getEmail());
+			// Displaying elements in Stream
+			stream.forEach(str -> System.out.println(str + " "));
 		}
-	}*/
+	}
 
 }
