@@ -11,4 +11,5 @@ public interface EmailInfoRepository extends MongoRepository<EmailInfo, String> 
     @Query("{firstName: '?0'}")
     List<EmailInfo> findByFirstName(String firstName);
 
+
 }
