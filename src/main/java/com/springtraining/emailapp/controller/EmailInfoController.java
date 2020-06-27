@@ -21,7 +21,20 @@ public class EmailInfoController {
     @ResponseBody
     @GetMapping("/{firstName}")
     public List<EmailInfo> findByFirstName(@PathVariable String firstName) {
-       List<EmailInfo> response = service.findByFirstName(firstName);
-       return response;
+        return service.findByFirstName(firstName);
+    }
+
+    @ResponseBody
+    @RequestMapping("/delete/{firstName}")
+    public int deleteByFirstName(@PathVariable String firstName) {
+        return service.deleteByFirstName(firstName);
+
+    }
+
+    @ResponseBody
+    @RequestMapping("/list")
+    public List<EmailInfo> getAllEmailInfo() {
+        return service.getAllEmailInfo();
+
     }
 }

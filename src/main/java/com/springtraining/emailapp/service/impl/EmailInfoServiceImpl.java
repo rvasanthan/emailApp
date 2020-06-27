@@ -18,4 +18,19 @@ public class EmailInfoServiceImpl implements EmailInfoService {
     public List<EmailInfo> findByFirstName(String firstName) {
         return repository.findByFirstName(firstName);
     }
+
+    @Override
+    public int deleteByFirstName(String firstName) {
+
+        List<EmailInfo> emailInfoList= repository.findByFirstName(firstName);
+        int cnt = emailInfoList.size();
+        emailInfoList.forEach(emailInfo -> repository.delete(emailInfo));
+        return cnt;
+        }
+    @Override
+    public List<EmailInfo> getAllEmailInfo()
+    {
+        return repository.findAll();
+
+    }
 }

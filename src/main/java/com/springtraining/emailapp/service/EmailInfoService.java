@@ -8,4 +8,7 @@ import java.util.List;
 public interface EmailInfoService {
 
     List<EmailInfo> findByFirstName(String firstName);
+    List<EmailInfo> getAllEmailInfo();
+    int deleteByFirstName(String firstName);
+
 }
