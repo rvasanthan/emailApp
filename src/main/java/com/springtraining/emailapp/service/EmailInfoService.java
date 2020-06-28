@@ -8,4 +8,6 @@ import java.util.List;
 public interface EmailInfoService {
 
     List<EmailInfo> findByFirstName(String firstName);
+
+    EmailInfo updateLastName(String name);
 }
