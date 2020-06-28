@@ -18,4 +18,12 @@ public class EmailInfoServiceImpl implements EmailInfoService {
     public List<EmailInfo> findByFirstName(String firstName) {
         return repository.findByFirstName(firstName);
     }
+
+    @Override
+    public EmailInfo insertEmailInfo(EmailInfo eInfo)
+    {
+        repository.save(eInfo);
+        return eInfo;
+    }
+
 }
